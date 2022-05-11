@@ -1,35 +1,35 @@
-# Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings.
+l1 = "5.0, 100, 5.5, 101, 6.0, 102:L10;5.0, 99, 5.5, 100, 6.0, 101:L20;"
 
-# You need to help them find out their common interest with the least list index sum. If there is a choice tie between answers, output all of them with no order requirement. You could assume there always exists an answer.
+def makeMatrix(astring):
+    matrix = []
+    headers = []
+    astring = astring.split(',')
 
- 
+    row = 0
+    for item in astring:
+        if ":" in item:
+            x = item.split(":")
+            matrix[row].append(x[0])
+            row += 1
+            x = x[-1].split(";")
+            matrix.append([])
+            matrix[row].append(x[-1])
 
-# Example 1:
+        else:
+            if len(matrix) <= row:
+                matrix.append([])
+            matrix[row].append(item)
 
-# Input: list1 = ["Shogun","Tapioca Express","Burger King","KFC"], list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
-# Output: ["Shogun"]
-# Explanation: The only restaurant they both like is "Shogun".
-# Example 2:
+    matrixDict = {}
+    for item in matrix:
+        if item[0] == "":
+            continue
+        print(item)
+        matrixDict.get(item[0])
 
-# Input: list1 = ["Shogun","Tapioca Express","Burger King","KFC"], list2 = ["KFC","Shogun","Burger King"]
-# Output: ["Shogun"]
-# Explanation: The restaurant they both like and have the least index sum is "Shogun" with index sum 1 (0+1).
 
-def commonPlaces(l1, l2):
-    possiblePlaces = {}
-    for index, r in enumerate(l1):
-        for index2, r2 in enumerate(l2):
-            if r == r2:
-                possiblePlaces[r] = index + index2
-    finalPlaces = possiblePlaces.values()
-    
-    final = [x for x in possiblePlaces.keys() if possiblePlaces[x] == min(finalPlaces)]
-    return final
 
-# list1 = ["Shogun","Tapioca Express","Burger King","KFC"]
-# list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
-# print(commonPlaces(list1, list2))
 
-list1 = ["Shogun","Burger King", "Tapioca Express","KFC"]
-list2 = ["Burger King", "Shogun", "KFC"]
-print(commonPlaces(list1, list2))
+
+
+print(makeMatrix(l1))
