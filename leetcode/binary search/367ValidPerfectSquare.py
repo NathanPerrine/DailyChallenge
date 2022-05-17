@@ -37,4 +37,24 @@ def binSquare(num):
 
 
 n = 14
-print(binSquare(n))
+# print(binSquare(n))
+
+def mySqrt(x: int) -> int:
+    l = 0
+    h = x
+    ans = 0
+    while l <= h:
+        mid = (h + l) // 2
+        guess = mid * mid
+
+        if guess == x:
+            return mid
+        elif guess < x:
+            ans = mid
+            l = mid + 1
+        else:
+            h = mid - 1
+    return ans
+
+n = 4
+print(mySqrt(n))
