@@ -79,5 +79,5 @@ sentence = "ag"
 print(longest_sub2(sentence))
 sentence = "abbbccdefggggggggg"
 print(longest_sub2(sentence))
-sentence = "abbbccddddddddddddefgggg453215iiii"
+sentence = "dabbbccddddddddddddefgggg453215iiii"
 print(longest_sub2(sentence))
