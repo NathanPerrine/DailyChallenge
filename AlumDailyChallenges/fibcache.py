@@ -9,7 +9,6 @@ def fib(n):
 def main():
     for i in range(400):
         print(i, fib(i))
-    print('done')
 
 if __name__ == "__main__":
     main()
