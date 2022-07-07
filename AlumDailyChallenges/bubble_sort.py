@@ -58,6 +58,26 @@ def bubble_3(alist):
         iterations += 1
     return alist
 
+# print(unsorted)
+# print(bubble_2(unsorted))
+# print(unsorted)
+
+def bubble_practice(alist):
+    is_sorted = False 
+    iterations = 0
+
+    while not is_sorted:
+        is_sorted = True 
+
+        for i in range(len(alist) - iterations - 1):
+            if alist[i] > alist[i+1]:
+                alist[i], alist[i+1] = alist[i+1], alist[i]
+                is_sorted = False 
+        iterations += 1
+
+    return alist
+
 print(unsorted)
-print(bubble_2(unsorted))
+# print(bubble_practice(unsorted))
+print(f"{bubble_practice(unsorted)=}")
 print(unsorted)
